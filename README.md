@@ -50,7 +50,7 @@ go run . gitlab.example.com git.example.foo
 
 GitLab uses webpack and each GitLab environment has a public webpack manifest file located at `/assets/webpack/manifest.json` in which a hash, unique to each webpack build, is present.
 
-If you create a list of hashes for each GitLab build (version) you can fingerprint the GitLab version by simply comparing the one in the manifest file with the ones in the created list. [@righel](https://github.com/righel/else) has done just that and runs a nightly GitHub action that retrieves hashes and stores them into a JSON dictionary, which is then used by their Nmap script (NSE). *gitlab-fingerprinter makes* use of [this list](https://raw.githubusercontent.com/righel/gitlab-version-nse/main/gitlab_hashes.json) as well.
+If you create a list of hashes for each GitLab build (version) you can fingerprint the GitLab version by simply comparing the one in the manifest file with the ones in the created list. [@righel](https://github.com/righel/gitlab-version-nse) has done just that and runs a nightly GitHub action that retrieves hashes and stores them into a JSON dictionary, which is then used by their Nmap script (NSE). *gitlab-fingerprinter makes* use of [this list](https://raw.githubusercontent.com/righel/gitlab-version-nse/main/gitlab_hashes.json) as well.
 
 *But*, there's one problem with this tactic:  
 If GitLab does not change front-end code the manifest hash does not change, this results in multiple patch versions being returned. 16.8.6 and 16.8.7 share the same hash for example.
