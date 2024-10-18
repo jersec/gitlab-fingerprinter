@@ -1,3 +1,3 @@
 module gitlab-fingerprinter
 
-go 1.23.0
+go 1.23.2
